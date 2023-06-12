@@ -1,23 +1,17 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useState } from 'react';
 
-import { addEntry, removeEntry } from '../store/pbSlice';
+// import { addEntry, removeEntry } from '../store/pbSlice';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
 
 export const App = () => {
-  const [text, setText] = useState('');
+  // const [text, setText] = useState('');
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      REDUX homework template
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <ContactList />
     </div>
   );
 };

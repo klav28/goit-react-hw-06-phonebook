@@ -1,6 +1,5 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
-
-const initialState = [];
+import initialState from '../components/contacts';
 
 const pbSlice = createSlice({
   name: 'phonebook',
@@ -8,23 +7,33 @@ const pbSlice = createSlice({
   reducers: {
     addEntry: {
       reducer(state, action) {
+        if (
+          state.find(
+            el => el.name.toLowerCase() === action.payload.name.toLowerCase()
+          )
+        ) {
+          alert(`${action.payload.name} is already exists in contacts`);
+          return;
+        }
         state.push(action.payload);
       },
-      prepare(text) {
+      prepare({ name, number }) {
         return {
           payload: {
-            text,
+            name,
+            number,
             id: nanoid(4),
           },
         };
       },
     },
     deleteEntry(state, action) {
-      state.filter(entry => entry.id !== action.payload);
+      const index = state.findIndex(entry => entry.id === action.payload);
+      state.splice(index, 1);
     },
   },
 });
 
-const { addEntry, deleteEntry } = pbSlice.actions;
+export const { addEntry, deleteEntry } = pbSlice.actions;
 
-const pbReducer = pbSlice.reducer;
+export const pbReducer = pbSlice.reducer;

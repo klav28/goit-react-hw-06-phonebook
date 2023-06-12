@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = [];
 
@@ -12,6 +12,6 @@ const filterSlice = createSlice({
   },
 });
 
-const { filterEntry } = filterSlice.actions;
+export const { filterEntry } = filterSlice.actions;
 
-const filterReducer = filterSlice.reducer;
+export const filterReducer = filterSlice.reducer;
