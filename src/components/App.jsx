@@ -1,4 +1,11 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addEntry, removeEntry } from '../store/pbSlice';
+
 export const App = () => {
+  const [text, setText] = useState('');
+
   return (
     <div
       style={{
@@ -10,7 +17,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      React homework template
+      REDUX homework template
     </div>
   );
 };
