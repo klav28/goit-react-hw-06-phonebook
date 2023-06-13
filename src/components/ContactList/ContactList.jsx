@@ -2,11 +2,11 @@ import StyledList from './ContactList.component';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteEntry } from '../../store/pbSlice';
-import { getContacts } from 'store/selectors';
+import { getFilteredContacts } from 'store/selectors';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(getFilteredContacts);
 
   return (
     <StyledList>
